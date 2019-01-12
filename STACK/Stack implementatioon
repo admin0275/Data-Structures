@@ -1,0 +1,109 @@
+/**
+*
+* Stack Implementation
+* @author Manivannan
+* 12-1-2019
+**/
+
+import java.io.*;
+import java.util.*;
+class Stack
+{
+	Scanner input=new Scanner(System.in);
+    int size=input.nextInt();
+    int[] stack_container=new int[size];  //STACK 
+    int top_element=-1,pop=0;
+    public void Push(int element)
+    {
+        if(top_element==((size)-1))
+        {
+        	System.out.println("Stack is Overloaded");  /*if the top of the element is exeed to size */
+
+        }
+        else
+        {
+        	top_element++;
+        	stack_container[top_element]=element;
+        	System.out.println("succesfully Added in the Stack");
+        }
+    }
+    public void Pop()
+    {
+    	if(top_element==-1)
+    	{
+    		System.out.println("Stack is Empty");   /*if the Stack size is -1 the stack is initially empty*/
+    	}
+    	else
+    	{
+    		pop=stack_container[top_element];
+    		top_element--;
+    		
+    	}
+    }
+    public void Peek()
+    {
+    	if(top_element==-1)
+    	{
+    		System.out.println("Stack is Empty");
+    	}
+    	else
+    	{
+            pop=stack_container[top_element];
+            System.out.println("Top of the Stack is:"+pop);  /*Top of the Stack*/
+    	}
+    }
+    public void Display()
+    {
+    	System.out.print("Elements in the Stack are:");
+    	for(int i=0;i<=top_element;i++)
+    	{
+            System.out.print(stack_container[i]+"  "); /* The elements in the Stack*/
+    	}
+    }
+}
+class Stack_Operations
+{
+    public static void main(String[] args) {
+    	System.out.print("Enter the Stack Size:");
+        Stack op=new Stack(); /*WHEN THE OBJECT IS CREATED IT IMEDIATELY INVOKE THE CLASS*/
+    	Scanner in=new Scanner(System.in);
+    	int ch,element;
+    	/*Stack Operations Are
+
+    	*Push(Add)
+    	*Pop(Delete)
+    	*Peek(Show)
+    	*Display
+    	*/
+        do
+    	{
+    		System.out.println("\n1.Push\n2.Pop\n3.Peek\n4.Display\n5.Exit");
+    		System.out.print("Enter the Choice:");
+    		ch=in.nextInt();
+            switch(ch)
+            {
+            	case 1:
+            	System.out.print("Enter the element:");
+            	element=in.nextInt();
+            	op.Push(element);
+            	break;
+
+            	case 2:
+            	op.Pop();
+            	break;
+
+            	case 3:
+            	op.Peek();
+            	break;
+
+            	case 4:
+
+            	op.Display();
+            	break;
+                 
+            	default:
+            	System.out.println("Invalid Choice");
+            }
+    	}while(ch!=5);
+    }
+} 
